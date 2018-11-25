@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Parent from './components/parentToChild/parent';
 import './App.css';
-
+/*issue in code we need to check*/
 class App extends Component {
+  state={
+    title:'place holder'
+
+  }
+  doWhatEver=(newTitle)=>{
+    this.setState({
+      title:newTitle
+    });
+  }
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <br/>
+       <Parent changeName={this.doWhatEver.bind(this,'how are u')} 
+       changeNumbers={this.doWhatEver.bind(this,'How is u mom doing')}  title={this.state.title}/>
       </div>
     );
   }
